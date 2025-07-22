@@ -9,7 +9,7 @@ const timetableData = [
     day: "Monday",
     sessions: [
       {
-        time: "9:00 - 9:30 PM",
+        time: "7:00 - 7:45 PM",
         course: "Technical Analysis",
         activeWeeks: "1-8",
         duration: "8 weeks",
@@ -20,7 +20,7 @@ const timetableData = [
         color: "teal",
       },
       {
-        time: "9:30 - 10:00 PM",
+        time: "7:45 - 8:30 PM",
         course: "Blockchain & AI Agents",
         activeWeeks: "1-14",
         duration: "14 weeks",
@@ -33,48 +33,21 @@ const timetableData = [
     ],
   },
   {
-    day: "Wednesday",
+    day: "Tuesday",
     sessions: [
       {
-        time: "9:00 - 9:30 PM",
-        course: "Web3 for Individuals",
-        activeWeeks: "1-6",
-        duration: "6 weeks",
-        level: "Beginner",
-        capacity: "40 students",
-        notes: "Personal Web3 tools, wallet management, and DeFi participation",
-        topics: ["Wallet setup", "DeFi protocols", "NFT basics", "Security practices"],
-        color: "green",
-      },
-      {
-        time: "9:30 - 10:00 PM",
-        course: "Web3 for Corporate Entities",
+        time: "7:00 - 8:00 PM",
+        course: "Node Running",
         activeWeeks: "1-10",
         duration: "10 weeks",
-        level: "Intermediate",
-        capacity: "30 students",
-        notes: "Enterprise applications, compliance frameworks, and business integration",
-        topics: ["Enterprise blockchain", "Compliance", "Business models", "Integration strategies"],
-        color: "slate",
-      },
-    ],
-  },
-  {
-    day: "Friday",
-    sessions: [
-      {
-        time: "9:00 - 9:30 PM",
-        course: "Technical Writing",
-        activeWeeks: "1-8",
-        duration: "8 weeks",
-        level: "Beginner",
-        capacity: "35 students",
-        notes: "Content creation for Web3, documentation, and community communication",
-        topics: ["Documentation writing", "Whitepaper creation", "Content strategy", "Technical communication"],
-        color: "orange",
+        level: "Advanced",
+        capacity: "15 students",
+        notes: "Hands-on node management, network maintenance, and infrastructure",
+        topics: ["Node setup", "Network monitoring", "Security protocols", "Performance optimization"],
+        color: "blue",
       },
       {
-        time: "9:30 - 10:00 PM",
+        time: "8:00 - 8:30 PM",
         course: "Faculty of Memetics",
         activeWeeks: "1-6",
         duration: "6 weeks",
@@ -87,21 +60,37 @@ const timetableData = [
     ],
   },
   {
-    day: "Saturday",
+    day: "Wednesday",
     sessions: [
       {
-        time: "10:00 - 10:30 AM",
-        course: "Node Running",
-        activeWeeks: "1-10",
-        duration: "10 weeks",
-        level: "Advanced",
-        capacity: "15 students",
-        notes: "Hands-on node management, network maintenance, and infrastructure",
-        topics: ["Node setup", "Network monitoring", "Security protocols", "Performance optimization"],
-        color: "blue",
+        time: "7:00 - 7:45 PM",
+        course: "Web3 for Individuals",
+        activeWeeks: "1-6",
+        duration: "6 weeks",
+        level: "Beginner",
+        capacity: "40 students",
+        notes: "Personal Web3 tools, wallet management, and DeFi participation",
+        topics: ["Wallet setup", "DeFi protocols", "NFT basics", "Security practices"],
+        color: "green",
       },
       {
-        time: "10:30 - 11:00 AM",
+        time: "7:45 - 8:30 PM",
+        course: "Web3 for Corporate Entities",
+        activeWeeks: "1-10",
+        duration: "10 weeks",
+        level: "Intermediate",
+        capacity: "30 students",
+        notes: "Enterprise applications, compliance frameworks, and business integration",
+        topics: ["Enterprise blockchain", "Compliance", "Business models", "Integration strategies"],
+        color: "slate",
+      },
+    ],
+  },
+  {
+    day: "Thursday",
+    sessions: [
+      {
+        time: "7:00 - 8:00 PM",
         course: "Vibe Coding",
         activeWeeks: "1-12",
         duration: "12 weeks",
@@ -110,6 +99,17 @@ const timetableData = [
         notes: "Creative Web3 coding projects, UI/UX design, and interactive experiences",
         topics: ["Creative development", "UI/UX for Web3", "Animation systems", "Interactive design"],
         color: "purple",
+      },
+      {
+        time: "8:00 - 8:30 PM",
+        course: "Technical Writing",
+        activeWeeks: "1-8",
+        duration: "8 weeks",
+        level: "Beginner",
+        capacity: "35 students",
+        notes: "Content creation for Web3, documentation, and community communication",
+        topics: ["Documentation writing", "Whitepaper creation", "Content strategy", "Technical communication"],
+        color: "orange",
       },
     ],
   },
@@ -192,7 +192,7 @@ export default function Timetable() {
               </Card>
               <Card className="glass p-4 text-center">
                 <Clock className="w-6 h-6 text-orange-500 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-white font-space-grotesk">16</div>
+                <div className="text-2xl font-bold text-white font-space-grotesk">8</div>
                 <div className="text-sm text-gray-400 font-space-grotesk">Sessions/Week</div>
               </Card>
               <Card className="glass p-4 text-center">
@@ -304,7 +304,7 @@ export default function Timetable() {
               <ul className="space-y-3 text-gray-400 font-space-grotesk">
                 <li className="flex items-start gap-2">
                   <span className="text-orange-500 mt-1">•</span>
-                  All sessions are conducted online via our learning platform
+                  All sessions are conducted via Google Meet
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-orange-500 mt-1">•</span>
