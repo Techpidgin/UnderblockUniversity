@@ -8,14 +8,15 @@ import {
   GraduationCap,
   TrendingUp,
   Code,
-  BarChart3,
   Server,
   Zap,
   Users,
-  Brain,
   PenTool,
   Smile,
   Building2,
+  Database,
+  Megaphone,
+  Crown,
 } from "lucide-react"
 import { CertificateModal } from "@/components/certificate-modal"
 import Image from "next/image"
@@ -23,34 +24,24 @@ import Image from "next/image"
 export default function Component() {
   const courses = [
     {
-      id: "technical-analysis",
-      title: "Technical Analysis",
-      icon: BarChart3,
+      id: "defi-data-analytics",
+      title: "DeFi Data Analytics",
+      icon: Database,
       color: "teal",
-      description: "Master chart patterns, indicators, and trading strategies for crypto markets.",
-      duration: "8 weeks",
-      price: "$79",
-      features: ["Chart pattern recognition", "Technical indicators", "Risk management", "Trading psychology"],
-    },
-    {
-      id: "node-running",
-      title: "Node Running",
-      icon: Server,
-      color: "blue",
-      description: "Learn to set up, maintain, and optimize blockchain nodes for various networks.",
+      description: "Master DeFi protocols analysis, yield farming strategies, and on-chain data interpretation.",
       duration: "10 weeks",
-      price: "$129",
-      features: ["Node setup & configuration", "Network maintenance", "Security best practices", "Monitoring & alerts"],
+      price: "$149",
+      features: ["Protocol analysis", "Yield optimization", "On-chain metrics", "Risk assessment"],
     },
     {
-      id: "vibe-coding",
-      title: "Vibe Coding",
-      icon: Zap,
-      color: "purple",
-      description: "Creative coding for Web3 projects with focus on user experience and aesthetics.",
-      duration: "12 weeks",
-      price: "$149",
-      features: ["Creative development", "UI/UX for Web3", "Animation & interactions", "Design systems"],
+      id: "blockchain-development",
+      title: "Blockchain Development",
+      icon: Code,
+      color: "blue",
+      description: "Build decentralized applications with Solidity, smart contracts, and Web3 frameworks.",
+      duration: "14 weeks",
+      price: "$199",
+      features: ["Smart contract development", "DApp architecture", "Web3 integration", "Security auditing"],
     },
     {
       id: "web3-individuals",
@@ -63,14 +54,24 @@ export default function Component() {
       features: ["Wallet management", "DeFi participation", "NFT ecosystem", "Digital identity"],
     },
     {
-      id: "blockchain-ai-agents",
-      title: "Blockchain & AI Agents",
-      icon: Brain,
-      color: "indigo",
-      description: "Combine blockchain technology with AI agents for autonomous decentralized systems.",
-      duration: "14 weeks",
-      price: "$159",
-      features: ["AI agent development", "Blockchain integration", "Autonomous systems", "Smart contracts + AI"],
+      id: "web3-corporate",
+      title: "Web3 for Corporate Entities",
+      icon: Building2,
+      color: "slate",
+      description: "Enterprise adoption of Web3 technologies, compliance, and business integration.",
+      duration: "10 weeks",
+      price: "$199",
+      features: ["Enterprise blockchain", "Compliance frameworks", "Business integration", "Corporate strategy"],
+    },
+    {
+      id: "technical-marketing",
+      title: "Technical Marketing",
+      icon: Megaphone,
+      color: "purple",
+      description: "Marketing strategies for Web3 projects, community building, and growth hacking.",
+      duration: "8 weeks",
+      price: "$129",
+      features: ["Growth strategies", "Community building", "Content marketing", "Web3 campaigns"],
     },
     {
       id: "technical-writing",
@@ -83,6 +84,26 @@ export default function Component() {
       features: ["Documentation writing", "Whitepaper creation", "Content strategy", "Community communication"],
     },
     {
+      id: "vibe-coding",
+      title: "Vibe Coding",
+      icon: Zap,
+      color: "indigo",
+      description: "Creative coding for Web3 projects with focus on user experience and aesthetics.",
+      duration: "12 weeks",
+      price: "$149",
+      features: ["Creative development", "UI/UX for Web3", "Animation & interactions", "Design systems"],
+    },
+    {
+      id: "node-running",
+      title: "Node Running",
+      icon: Server,
+      color: "blue",
+      description: "Learn to set up, maintain, and optimize blockchain nodes for various networks.",
+      duration: "10 weeks",
+      price: "$129",
+      features: ["Node setup & configuration", "Network maintenance", "Security best practices", "Monitoring & alerts"],
+    },
+    {
       id: "faculty-memetics",
       title: "Faculty of Memetics",
       icon: Smile,
@@ -93,23 +114,18 @@ export default function Component() {
       features: ["Meme culture analysis", "Viral content creation", "Community psychology", "Brand memetics"],
     },
     {
-      id: "web3-corporate",
-      title: "Web3 for Corporate Entities",
-      icon: Building2,
-      color: "slate",
-      description: "Enterprise adoption of Web3 technologies, compliance, and business integration.",
-      duration: "10 weeks",
-      price: "$199",
-      features: ["Enterprise blockchain", "Compliance frameworks", "Business integration", "Corporate strategy"],
+      id: "crypto-master-class",
+      title: "Crypto Master Class",
+      icon: Crown,
+      color: "gold",
+      description: "Comprehensive advanced program covering all aspects of cryptocurrency and blockchain mastery.",
+      duration: "20 weeks",
+      price: "$1200",
+      features: ["Advanced trading", "Portfolio management", "Institutional strategies", "Market analysis"],
     },
   ]
 
   const partners = [
-    {
-      name: "Tradoor",
-      handle: "@tradoor_io",
-      logo: "/images/partners/tradoor.jpg",
-    },
     {
       name: "Doge Africa",
       handle: "@dogeafrica_",
@@ -119,16 +135,6 @@ export default function Component() {
       name: "Own The Doge",
       handle: "@ownthedoge",
       logo: "/images/partners/own-the-doge.png",
-    },
-    {
-      name: "Miner Squad",
-      handle: "@minersquad_tg",
-      logo: "/images/partners/miners.jpg",
-    },
-    {
-      name: "Cats Telegram",
-      handle: "@Cats_telegram",
-      logo: "/images/partners/cats.png",
     },
   ]
 
@@ -245,20 +251,37 @@ export default function Component() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course) => {
             const Icon = course.icon
+            const isSpecial = course.id === "crypto-master-class"
             return (
-              <Card key={course.id} className="glass p-8 hover-lift">
+              <Card
+                key={course.id}
+                className={`glass p-8 hover-lift ${isSpecial ? "border-2 border-yellow-500/50" : ""}`}
+              >
+                {isSpecial && (
+                  <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit">
+                    PREMIUM COURSE
+                  </div>
+                )}
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-orange-500" />
+                  <div
+                    className={`w-12 h-12 ${isSpecial ? "bg-yellow-500/20" : "bg-orange-500/20"} rounded-lg flex items-center justify-center`}
+                  >
+                    <Icon className={`w-6 h-6 ${isSpecial ? "text-yellow-500" : "text-orange-500"}`} />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white font-space-grotesk">{course.title}</h3>
-                    <p className="text-orange-500 font-ibm-plex-mono">{course.duration}</p>
+                    <p className={`${isSpecial ? "text-yellow-500" : "text-orange-500"} font-ibm-plex-mono`}>
+                      {course.duration}
+                    </p>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <span className="text-2xl font-bold text-orange-500 font-space-grotesk">{course.price}</span>
+                  <span
+                    className={`text-2xl font-bold ${isSpecial ? "text-yellow-500" : "text-orange-500"} font-space-grotesk`}
+                  >
+                    {course.price}
+                  </span>
                 </div>
 
                 <p className="text-gray-400 mb-4 font-space-grotesk">{course.description}</p>
@@ -270,7 +293,7 @@ export default function Component() {
 
                 <Button
                   onClick={() => window.open("https://forms.gle/VX6SzUadoA1Bb6wn6", "_blank")}
-                  className="w-full btn-primary hover-lift hover-glow"
+                  className={`w-full ${isSpecial ? "bg-gradient-to-r from-yellow-500 to-orange-500 text-black hover:from-yellow-600 hover:to-orange-600" : "btn-primary"} hover-lift hover-glow`}
                 >
                   Enroll Now - {course.price}
                 </Button>
@@ -289,7 +312,7 @@ export default function Component() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="flex justify-center gap-8">
           {partners.map((partner, index) => (
             <Card key={index} className="glass p-6 text-center hover-lift hover-scale">
               <div className="w-16 h-16 mx-auto mb-4 rounded-lg overflow-hidden bg-gray-700 flex items-center justify-center">

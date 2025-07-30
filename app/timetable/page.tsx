@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Clock, Calendar, Users, BookOpen, Zap } from "lucide-react"
+import { ArrowLeft, Clock, Calendar, Users, BookOpen, Zap, Star } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -9,53 +9,41 @@ const timetableData = [
     day: "Monday",
     sessions: [
       {
-        time: "7:00 - 7:45 PM",
-        course: "Technical Analysis",
-        activeWeeks: "1-8",
-        duration: "8 weeks",
+        time: "7:00 - 7:30 PM",
+        course: "Web3 Fundamentals",
+        type: "General",
+        activeWeeks: "1-4",
+        duration: "4 weeks",
+        level: "Beginner",
+        capacity: "All students",
+        notes: "Foundation course covering blockchain basics, wallets, and Web3 ecosystem overview",
+        topics: ["Blockchain basics", "Wallet setup", "Web3 ecosystem", "Security fundamentals"],
+        color: "green",
+        isGeneral: true,
+      },
+      {
+        time: "7:30 - 8:00 PM",
+        course: "DeFi Data Analytics",
+        type: "Specialized",
+        activeWeeks: "5-14",
+        duration: "10 weeks",
         level: "Intermediate",
         capacity: "25 students",
-        notes: "Focus on crypto trading strategies, chart patterns, and market psychology",
-        topics: ["Candlestick patterns", "Support & resistance", "Technical indicators", "Risk management"],
+        notes: "Master DeFi protocols analysis, yield farming strategies, and on-chain data interpretation",
+        topics: ["Protocol analysis", "Yield optimization", "On-chain metrics", "Risk assessment"],
         color: "teal",
       },
       {
-        time: "7:45 - 8:30 PM",
-        course: "Blockchain & AI Agents",
-        activeWeeks: "1-14",
+        time: "8:00 - 8:30 PM",
+        course: "Blockchain Development",
+        type: "Specialized",
+        activeWeeks: "5-18",
         duration: "14 weeks",
         level: "Advanced",
         capacity: "20 students",
-        notes: "Integration of AI and blockchain technologies for autonomous systems",
-        topics: ["Smart contract automation", "AI decision making", "Decentralized AI", "Agent protocols"],
-        color: "indigo",
-      },
-    ],
-  },
-  {
-    day: "Tuesday",
-    sessions: [
-      {
-        time: "7:00 - 8:00 PM",
-        course: "Node Running",
-        activeWeeks: "1-10",
-        duration: "10 weeks",
-        level: "Advanced",
-        capacity: "15 students",
-        notes: "Hands-on node management, network maintenance, and infrastructure",
-        topics: ["Node setup", "Network monitoring", "Security protocols", "Performance optimization"],
+        notes: "Build decentralized applications with Solidity, smart contracts, and Web3 frameworks",
+        topics: ["Smart contract development", "DApp architecture", "Web3 integration", "Security auditing"],
         color: "blue",
-      },
-      {
-        time: "8:00 - 8:30 PM",
-        course: "Faculty of Memetics",
-        activeWeeks: "1-6",
-        duration: "6 weeks",
-        level: "Beginner",
-        capacity: "50 students",
-        notes: "Meme culture in marketing, viral content creation, and community psychology",
-        topics: ["Meme analysis", "Viral marketing", "Community building", "Brand memetics"],
-        color: "pink",
       },
     ],
   },
@@ -63,53 +51,155 @@ const timetableData = [
     day: "Wednesday",
     sessions: [
       {
-        time: "7:00 - 7:45 PM",
-        course: "Web3 for Individuals",
-        activeWeeks: "1-6",
-        duration: "6 weeks",
+        time: "7:00 - 7:30 PM",
+        course: "Crypto Economics & Markets",
+        type: "General",
+        activeWeeks: "1-4",
+        duration: "4 weeks",
         level: "Beginner",
-        capacity: "40 students",
-        notes: "Personal Web3 tools, wallet management, and DeFi participation",
-        topics: ["Wallet setup", "DeFi protocols", "NFT basics", "Security practices"],
+        capacity: "All students",
+        notes: "Understanding cryptocurrency markets, tokenomics, and economic principles",
+        topics: ["Market dynamics", "Tokenomics", "Trading basics", "Economic principles"],
         color: "green",
+        isGeneral: true,
       },
       {
-        time: "7:45 - 8:30 PM",
-        course: "Web3 for Corporate Entities",
-        activeWeeks: "1-10",
-        duration: "10 weeks",
+        time: "7:30 - 8:00 PM",
+        course: "Technical Marketing",
+        type: "Specialized",
+        activeWeeks: "5-12",
+        duration: "8 weeks",
         level: "Intermediate",
         capacity: "30 students",
-        notes: "Enterprise applications, compliance frameworks, and business integration",
-        topics: ["Enterprise blockchain", "Compliance", "Business models", "Integration strategies"],
-        color: "slate",
-      },
-    ],
-  },
-  {
-    day: "Thursday",
-    sessions: [
-      {
-        time: "7:00 - 8:00 PM",
-        course: "Vibe Coding",
-        activeWeeks: "1-12",
-        duration: "12 weeks",
-        level: "Intermediate",
-        capacity: "25 students",
-        notes: "Creative Web3 coding projects, UI/UX design, and interactive experiences",
-        topics: ["Creative development", "UI/UX for Web3", "Animation systems", "Interactive design"],
+        notes: "Marketing strategies for Web3 projects, community building, and growth hacking",
+        topics: ["Growth strategies", "Community building", "Content marketing", "Web3 campaigns"],
         color: "purple",
       },
       {
         time: "8:00 - 8:30 PM",
         course: "Technical Writing",
-        activeWeeks: "1-8",
+        type: "Specialized",
+        activeWeeks: "5-12",
         duration: "8 weeks",
         level: "Beginner",
         capacity: "35 students",
-        notes: "Content creation for Web3, documentation, and community communication",
+        notes: "Master the art of explaining complex Web3 concepts through clear, engaging content",
         topics: ["Documentation writing", "Whitepaper creation", "Content strategy", "Technical communication"],
         color: "orange",
+      },
+    ],
+  },
+  {
+    day: "Friday",
+    sessions: [
+      {
+        time: "7:00 - 7:30 PM",
+        course: "Web3 Tools & Platforms",
+        type: "General",
+        activeWeeks: "1-4",
+        duration: "4 weeks",
+        level: "Beginner",
+        capacity: "All students",
+        notes: "Hands-on experience with essential Web3 tools, platforms, and development environments",
+        topics: ["Development tools", "Testing platforms", "Deployment basics", "Version control"],
+        color: "green",
+        isGeneral: true,
+      },
+      {
+        time: "7:30 - 8:00 PM",
+        course: "Web3 for Individuals",
+        type: "Specialized",
+        activeWeeks: "5-10",
+        duration: "6 weeks",
+        level: "Beginner",
+        capacity: "40 students",
+        notes: "Personal Web3 journey - wallets, DeFi, NFTs, and digital identity management",
+        topics: ["Wallet management", "DeFi participation", "NFT ecosystem", "Digital identity"],
+        color: "green",
+      },
+      {
+        time: "8:00 - 8:30 PM",
+        course: "Web3 for Corporate Entities",
+        type: "Specialized",
+        activeWeeks: "5-14",
+        duration: "10 weeks",
+        level: "Intermediate",
+        capacity: "30 students",
+        notes: "Enterprise adoption of Web3 technologies, compliance, and business integration",
+        topics: ["Enterprise blockchain", "Compliance frameworks", "Business integration", "Corporate strategy"],
+        color: "slate",
+      },
+    ],
+  },
+  {
+    day: "Saturday",
+    sessions: [
+      {
+        time: "7:00 - 7:30 PM",
+        course: "Web3 Communication & Content",
+        type: "General",
+        activeWeeks: "1-4",
+        duration: "4 weeks",
+        level: "Beginner",
+        capacity: "All students",
+        notes: "Foundation in Web3 communication, content creation, and community engagement",
+        topics: ["Content basics", "Community engagement", "Communication skills", "Web3 terminology"],
+        color: "green",
+        isGeneral: true,
+      },
+      {
+        time: "7:30 - 8:00 PM",
+        course: "Node Running",
+        type: "Specialized",
+        activeWeeks: "5-14",
+        duration: "10 weeks",
+        level: "Advanced",
+        capacity: "15 students",
+        notes: "Learn to set up, maintain, and optimize blockchain nodes for various networks",
+        topics: ["Node setup & configuration", "Network maintenance", "Security best practices", "Monitoring & alerts"],
+        color: "blue",
+      },
+      {
+        time: "8:00 - 8:15 PM",
+        course: "Vibe Coding",
+        type: "Specialized",
+        activeWeeks: "5-16",
+        duration: "12 weeks",
+        level: "Intermediate",
+        capacity: "25 students",
+        notes: "Creative coding for Web3 projects with focus on user experience and aesthetics",
+        topics: ["Creative development", "UI/UX for Web3", "Animation systems", "Interactive design"],
+        color: "indigo",
+      },
+      {
+        time: "8:15 - 8:30 PM",
+        course: "Faculty of Memetics",
+        type: "Specialized",
+        activeWeeks: "5-10",
+        duration: "6 weeks",
+        level: "Beginner",
+        capacity: "50 students",
+        notes: "Understanding and leveraging meme culture in Web3 marketing and community building",
+        topics: ["Meme culture analysis", "Viral content creation", "Community psychology", "Brand memetics"],
+        color: "pink",
+      },
+    ],
+  },
+  {
+    day: "Sunday",
+    sessions: [
+      {
+        time: "7:00 - 8:30 PM",
+        course: "Crypto Master Class",
+        type: "Premium",
+        activeWeeks: "1-20",
+        duration: "20 weeks",
+        level: "Advanced",
+        capacity: "10 students",
+        notes: "Comprehensive advanced program covering all aspects of cryptocurrency and blockchain mastery",
+        topics: ["Advanced trading", "Portfolio management", "Institutional strategies", "Market analysis"],
+        color: "gold",
+        isSpecial: true,
       },
     ],
   },
@@ -128,7 +218,24 @@ const getLevelColor = (level: string) => {
   }
 }
 
-const getColorClasses = (color: string) => {
+const getTypeColor = (type: string) => {
+  switch (type) {
+    case "General":
+      return "text-blue-400 bg-blue-500/20"
+    case "Specialized":
+      return "text-purple-400 bg-purple-500/20"
+    case "Premium":
+      return "text-yellow-400 bg-yellow-500/20"
+    default:
+      return "text-gray-400 bg-gray-500/20"
+  }
+}
+
+const getColorClasses = (color: string, isGeneral?: boolean) => {
+  if (isGeneral) {
+    return "border-l-blue-500 bg-blue-500/10"
+  }
+
   const colorMap = {
     teal: "border-l-teal-500 bg-teal-500/10",
     blue: "border-l-blue-500 bg-blue-500/10",
@@ -138,6 +245,7 @@ const getColorClasses = (color: string) => {
     orange: "border-l-orange-500 bg-orange-500/10",
     pink: "border-l-pink-500 bg-pink-500/10",
     slate: "border-l-slate-500 bg-slate-500/10",
+    gold: "border-l-yellow-500 bg-yellow-500/10",
   }
   return colorMap[color as keyof typeof colorMap] || colorMap.teal
 }
@@ -183,27 +291,49 @@ export default function Timetable() {
               Spring 2025 Schedule - All times are in WAT (West African Time)
             </p>
 
+            {/* Program Structure Info */}
+            <div className="mb-8 p-6 glass rounded-lg max-w-4xl mx-auto">
+              <h3 className="text-xl font-bold text-white mb-4 font-space-grotesk">Program Structure</h3>
+              <div className="grid md:grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4 text-blue-400" />
+                  <span className="text-blue-400 font-semibold">General Courses</span>
+                  <span className="text-gray-400">(Weeks 1-4)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4 text-purple-400" />
+                  <span className="text-purple-400 font-semibold">Specialized Courses</span>
+                  <span className="text-gray-400">(Weeks 5+)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4 text-yellow-400" />
+                  <span className="text-yellow-400 font-semibold">Premium Course</span>
+                  <span className="text-gray-400">(Full Program)</span>
+                </div>
+              </div>
+            </div>
+
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
               <Card className="glass p-4 text-center">
                 <BookOpen className="w-6 h-6 text-orange-500 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-white font-space-grotesk">8</div>
-                <div className="text-sm text-gray-400 font-space-grotesk">Courses</div>
+                <div className="text-2xl font-bold text-white font-space-grotesk">13</div>
+                <div className="text-sm text-gray-400 font-space-grotesk">Total Courses</div>
               </Card>
               <Card className="glass p-4 text-center">
                 <Clock className="w-6 h-6 text-orange-500 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-white font-space-grotesk">8</div>
-                <div className="text-sm text-gray-400 font-space-grotesk">Sessions/Week</div>
+                <div className="text-2xl font-bold text-white font-space-grotesk">5</div>
+                <div className="text-sm text-gray-400 font-space-grotesk">Days/Week</div>
               </Card>
               <Card className="glass p-4 text-center">
                 <Users className="w-6 h-6 text-orange-500 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-white font-space-grotesk">240</div>
+                <div className="text-2xl font-bold text-white font-space-grotesk">300+</div>
                 <div className="text-sm text-gray-400 font-space-grotesk">Total Capacity</div>
               </Card>
               <Card className="glass p-4 text-center">
                 <Zap className="w-6 h-6 text-orange-500 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-white font-space-grotesk">30min</div>
-                <div className="text-sm text-gray-400 font-space-grotesk">Session Length</div>
+                <div className="text-2xl font-bold text-white font-space-grotesk">7:00-8:30PM</div>
+                <div className="text-sm text-gray-400 font-space-grotesk">Class Hours</div>
               </Card>
             </div>
           </div>
@@ -222,9 +352,16 @@ export default function Timetable() {
                   {dayData.sessions.map((session, sessionIndex) => (
                     <Card
                       key={sessionIndex}
-                      className={`glass hover-lift border-l-4 ${getColorClasses(session.color)}`}
+                      className={`glass hover-lift border-l-4 ${getColorClasses(session.color, session.isGeneral)} ${
+                        session.isSpecial ? "border-2 border-yellow-500/50" : ""
+                      }`}
                     >
                       <div className="p-6">
+                        {session.isSpecial && (
+                          <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit">
+                            PREMIUM COURSE
+                          </div>
+                        )}
                         <div className="grid lg:grid-cols-3 gap-6">
                           {/* Main Info */}
                           <div className="lg:col-span-2">
@@ -233,6 +370,11 @@ export default function Timetable() {
                                 <Clock className="w-4 h-4 text-orange-500" />
                                 <span className="text-orange-500 font-ibm-plex-mono font-semibold">{session.time}</span>
                               </div>
+                              <span
+                                className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(session.type)}`}
+                              >
+                                {session.type}
+                              </span>
                               <span
                                 className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(session.level)} bg-white/10`}
                               >
@@ -268,6 +410,20 @@ export default function Timetable() {
                               <h4 className="text-white font-semibold mb-3 font-space-grotesk">Session Details</h4>
                               <div className="space-y-2 text-sm">
                                 <div className="flex justify-between">
+                                  <span className="text-gray-400">Type:</span>
+                                  <span
+                                    className={
+                                      session.type === "General"
+                                        ? "text-blue-400"
+                                        : session.type === "Premium"
+                                          ? "text-yellow-400"
+                                          : "text-purple-400"
+                                    }
+                                  >
+                                    {session.type}
+                                  </span>
+                                </div>
+                                <div className="flex justify-between">
                                   <span className="text-gray-400">Duration:</span>
                                   <span className="text-white">{session.duration}</span>
                                 </div>
@@ -282,9 +438,12 @@ export default function Timetable() {
                               </div>
                             </Card>
 
-                            <Button asChild className="w-full btn-primary hover-lift hover-glow">
+                            <Button
+                              asChild
+                              className={`w-full ${session.isSpecial ? "bg-gradient-to-r from-yellow-500 to-orange-500 text-black hover:from-yellow-600 hover:to-orange-600" : session.isGeneral ? "bg-blue-600 hover:bg-blue-700 text-white" : "btn-primary"} hover-lift hover-glow`}
+                            >
                               <a href="https://forms.gle/VX6SzUadoA1Bb6wn6" target="_blank" rel="noreferrer">
-                                Enroll in Course
+                                {session.isGeneral ? "Join General Course" : "Enroll in Course"}
                               </a>
                             </Button>
                           </div>
@@ -300,23 +459,23 @@ export default function Timetable() {
           {/* Additional Info */}
           <div className="mt-16 grid md:grid-cols-2 gap-8">
             <Card className="glass p-8 hover-lift">
-              <h3 className="text-2xl font-bold text-white mb-4 font-space-grotesk">Important Notes</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 font-space-grotesk">Program Flow</h3>
               <ul className="space-y-3 text-gray-400 font-space-grotesk">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">•</span>
+                  <strong className="text-blue-400">Weeks 1-4:</strong> General foundation courses for all students
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-1">•</span>
+                  <strong className="text-purple-400">Weeks 5+:</strong> Choose your specialized track
+                </li>
                 <li className="flex items-start gap-2">
                   <span className="text-orange-500 mt-1">•</span>
                   All sessions are conducted via Google Meet
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-orange-500 mt-1">•</span>
-                  Recordings are available for 48 hours after each session
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-orange-500 mt-1">•</span>
-                  Office hours available 1 hour before each session
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-orange-500 mt-1">•</span>
-                  Make-up sessions available for missed classes
+                  Recordings available for 48 hours after each session
                 </li>
               </ul>
             </Card>
@@ -324,7 +483,7 @@ export default function Timetable() {
             <Card className="glass p-8 hover-lift">
               <h3 className="text-2xl font-bold text-white mb-4 font-space-grotesk">Need Help?</h3>
               <p className="text-gray-400 mb-6 font-space-grotesk">
-                Have questions about the schedule or need assistance with enrollment?
+                Have questions about the program structure or need assistance with enrollment?
               </p>
               <div className="space-y-3">
                 <Button asChild className="w-full glass-button text-white hover-lift">
